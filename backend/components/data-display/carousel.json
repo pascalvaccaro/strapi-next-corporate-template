@@ -1,0 +1,49 @@
+{
+  "collectionName": "components_data_display_carousels",
+  "info": {
+    "name": "Carousel",
+    "icon": "baby-carriage"
+  },
+  "options": {},
+  "attributes": {
+    "autoplay": {
+      "type": "boolean",
+      "default": false
+    },
+    "dotPosition": {
+      "type": "enumeration",
+      "enum": [
+        "top",
+        "bottom",
+        "left",
+        "right"
+      ],
+      "default": "bottom"
+    },
+    "dots": {
+      "type": "boolean",
+      "default": true
+    },
+    "easing": {
+      "type": "enumeration",
+      "enum": [
+        "linear"
+      ],
+      "default": "linear"
+    },
+    "effect": {
+      "type": "enumeration",
+      "enum": [
+        "scrollx",
+        "fade"
+      ],
+      "default": "scrollx"
+    },
+    "afterChange": {
+      "model": "action"
+    },
+    "beforeChange": {
+      "model": "action"
+    }
+  }
+}

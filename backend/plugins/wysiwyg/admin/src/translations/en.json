@@ -1,0 +1,5 @@
+{
+    "plugin.name": "WYSIWYG",
+    "attribute.colorpicker": "Color",
+    "attribute.colorpicker.description": "Pick a color from a palette"
+}

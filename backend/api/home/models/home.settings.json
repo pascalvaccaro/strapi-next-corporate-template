@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "homes",
+  "info": {
+    "name": "Home",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "services": {
+      "type": "component",
+      "repeatable": true,
+      "component": "data-display.card",
+      "max": 3
+    },
+    "jumbotron": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.section"
+    },
+    "blog": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.section"
+    },
+    "about": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.section"
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "collectionName": "components_data_entry_form_field_data",
+  "info": {
+    "name": "Form.Item",
+    "icon": "database",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "colon": {
+      "type": "boolean",
+      "default": true
+    },
+    "dependencies": {
+      "type": "string"
+    },
+    "help": {
+      "type": "richtext"
+    },
+    "hidden": {
+      "type": "boolean",
+      "default": false
+    },
+    "initialValue": {
+      "type": "string"
+    },
+    "label": {
+      "type": "richtext"
+    },
+    "labelAlign": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right"
+      ],
+      "default": "right"
+    },
+    "preserve": {
+      "type": "boolean",
+      "default": true
+    },
+    "required": {
+      "type": "boolean",
+      "default": false
+    },
+    "rules": {
+      "type": "component",
+      "repeatable": true,
+      "component": "data-entry.form-rule"
+    }
+  }
+}

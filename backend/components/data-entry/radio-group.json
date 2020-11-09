@@ -1,0 +1,54 @@
+{
+  "collectionName": "components_data_entry_radio_groups",
+  "info": {
+    "name": "RadioGroup",
+    "icon": "check-double"
+  },
+  "options": {},
+  "attributes": {
+    "buttonStyle": {
+      "type": "enumeration",
+      "enum": [
+        "outline",
+        "solid"
+      ],
+      "default": "outline"
+    },
+    "defaultValue": {
+      "type": "string"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "options": {
+      "type": "json"
+    },
+    "optionType": {
+      "type": "enumeration",
+      "enum": [
+        "default",
+        "button"
+      ],
+      "default": "default"
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "large",
+        "middle",
+        "small"
+      ]
+    },
+    "value": {
+      "type": "text"
+    },
+    "onChange": {
+      "model": "action"
+    }
+  }
+}

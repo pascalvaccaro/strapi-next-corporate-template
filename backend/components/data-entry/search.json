@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_data_entry_searches",
+  "info": {
+    "name": "Search",
+    "icon": "search"
+  },
+  "options": {},
+  "attributes": {
+    "enterButton": {
+      "type": "boolean",
+      "default": false
+    },
+    "onSearch": {
+      "model": "action"
+    }
+  }
+}

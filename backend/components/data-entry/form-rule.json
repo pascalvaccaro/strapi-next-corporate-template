@@ -1,0 +1,49 @@
+{
+  "collectionName": "components_data_entry_form_rules",
+  "info": {
+    "name": "Form.Rule",
+    "icon": "ruler-combined"
+  },
+  "options": {},
+  "attributes": {
+    "enum": {
+      "type": "json"
+    },
+    "max": {
+      "type": "integer"
+    },
+    "message": {
+      "type": "text"
+    },
+    "pattern": {
+      "type": "text"
+    },
+    "min": {
+      "type": "integer"
+    },
+    "len": {
+      "type": "integer"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "string",
+        "number",
+        "boolean",
+        "url",
+        "email",
+        "enum",
+        "date",
+        "any"
+      ],
+      "default": "any"
+    },
+    "whitespace": {
+      "type": "boolean",
+      "default": false
+    },
+    "required": {
+      "type": "boolean"
+    }
+  }
+}

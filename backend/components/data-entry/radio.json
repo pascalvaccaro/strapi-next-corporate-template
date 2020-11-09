@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_data_entry_radios",
+  "info": {
+    "name": "Radio",
+    "icon": "check-circle"
+  },
+  "options": {},
+  "attributes": {
+    "autoFocus": {
+      "type": "boolean",
+      "default": false
+    },
+    "checked": {
+      "type": "boolean",
+      "default": false
+    },
+    "defaultChecked": {
+      "type": "boolean",
+      "default": false
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

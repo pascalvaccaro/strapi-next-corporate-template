@@ -1,0 +1,57 @@
+{
+  "collectionName": "components_data_entry_inputs",
+  "info": {
+    "name": "Input",
+    "icon": "pen"
+  },
+  "options": {},
+  "attributes": {
+    "addonAfter": {
+      "type": "richtext"
+    },
+    "addonBefore": {
+      "type": "richtext"
+    },
+    "allowClear": {
+      "type": "boolean"
+    },
+    "bordered": {
+      "type": "boolean",
+      "default": true
+    },
+    "defaultValue": {
+      "type": "text"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "value": {
+      "type": "text"
+    },
+    "maxLength": {
+      "type": "integer"
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "large",
+        "middle",
+        "small"
+      ],
+      "default": "large"
+    },
+    "prefix": {
+      "type": "richtext"
+    },
+    "suffix": {
+      "type": "richtext"
+    },
+    "onChange": {
+      "model": "action"
+    },
+    "onPressEnter": {
+      "model": "action"
+    }
+  }
+}

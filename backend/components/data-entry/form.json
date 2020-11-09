@@ -1,0 +1,56 @@
+{
+  "collectionName": "components_data_entry_forms",
+  "info": {
+    "name": "Form",
+    "icon": "align-center",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "colon": {
+      "type": "boolean",
+      "default": true
+    },
+    "fields": {
+      "type": "component",
+      "repeatable": true,
+      "component": "data-entry.form-field-data"
+    },
+    "labelAlign": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right"
+      ],
+      "default": "right"
+    },
+    "layout": {
+      "type": "enumeration",
+      "enum": [
+        "horizontal",
+        "vertical",
+        "inline"
+      ],
+      "default": "horizontal"
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "preserve": {
+      "type": "boolean",
+      "default": true
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "small",
+        "middle",
+        "large"
+      ]
+    },
+    "onFinish": {
+      "model": "action"
+    }
+  }
+}

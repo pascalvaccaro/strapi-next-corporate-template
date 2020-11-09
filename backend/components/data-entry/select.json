@@ -1,0 +1,128 @@
+{
+  "collectionName": "components_data_entry_selects",
+  "info": {
+    "name": "Select",
+    "icon": "angle-down",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "allowClear": {
+      "type": "boolean",
+      "default": false
+    },
+    "autoClearSearchValue": {
+      "type": "boolean",
+      "default": false
+    },
+    "autoFocus": {
+      "type": "boolean",
+      "default": false
+    },
+    "bordered": {
+      "type": "boolean",
+      "default": true
+    },
+    "clearIcon": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "defaultActiveFirstOption": {
+      "type": "boolean",
+      "default": true
+    },
+    "defaultOpen": {
+      "type": "boolean"
+    },
+    "defaultValue": {
+      "type": "text"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "filterOption": {
+      "type": "boolean",
+      "default": true
+    },
+    "mode": {
+      "type": "enumeration",
+      "enum": [
+        "multiple",
+        "tags"
+      ]
+    },
+    "open": {
+      "type": "boolean"
+    },
+    "options": {
+      "type": "component",
+      "repeatable": true,
+      "component": "data-entry.select-option"
+    },
+    "placeholder": {
+      "type": "richtext"
+    },
+    "removeIcon": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "showArrow": {
+      "type": "boolean",
+      "default": true
+    },
+    "showSearch": {
+      "type": "boolean",
+      "default": false
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "large",
+        "middle",
+        "small"
+      ]
+    },
+    "suffixIcon": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "virtual": {
+      "type": "boolean",
+      "default": true
+    },
+    "value": {
+      "type": "text"
+    },
+    "onChange": {
+      "model": "action"
+    },
+    "onClear": {
+      "model": "action"
+    },
+    "onDeselect": {
+      "model": "action"
+    },
+    "onSearch": {
+      "model": "action"
+    },
+    "onSelect": {
+      "model": "action"
+    }
+  }
+}

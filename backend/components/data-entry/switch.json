@@ -1,0 +1,46 @@
+{
+  "collectionName": "components_data_entry_switches",
+  "info": {
+    "name": "Switch",
+    "icon": "people-carry"
+  },
+  "options": {},
+  "attributes": {
+    "autoFocus": {
+      "type": "boolean",
+      "default": false
+    },
+    "checked": {
+      "type": "boolean",
+      "default": false
+    },
+    "checkedChildren": {
+      "type": "richtext"
+    },
+    "defaultChecked": {
+      "type": "boolean",
+      "default": false
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "default",
+        "small"
+      ],
+      "default": "default"
+    },
+    "uncheckedChildren": {
+      "type": "richtext"
+    },
+    "onChange": {
+      "model": "action"
+    },
+    "onClick": {
+      "model": "action"
+    }
+  }
+}

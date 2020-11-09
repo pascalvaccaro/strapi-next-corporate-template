@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_data_entry_text_areas",
+  "info": {
+    "name": "TextArea",
+    "icon": "pen-nib"
+  },
+  "options": {},
+  "attributes": {
+    "allowClear": {
+      "type": "boolean",
+      "default": false
+    },
+    "autoSize": {
+      "type": "boolean",
+      "default": false
+    },
+    "bordered": {
+      "type": "boolean",
+      "default": true
+    },
+    "defaultValue": {
+      "type": "text"
+    },
+    "maxLength": {
+      "type": "integer"
+    },
+    "showCount": {
+      "type": "boolean",
+      "default": false
+    },
+    "value": {
+      "type": "text"
+    },
+    "onPressEnter": {
+      "model": "action"
+    },
+    "onResize": {
+      "model": "action"
+    }
+  }
+}

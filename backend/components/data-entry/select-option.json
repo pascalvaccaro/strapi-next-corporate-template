@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_data_entry_select_options",
+  "info": {
+    "name": "Select.Option",
+    "icon": "arrow-alt-circle-down"
+  },
+  "options": {},
+  "attributes": {
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "title": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    }
+  }
+}

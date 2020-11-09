@@ -1,0 +1,61 @@
+{
+  "collectionName": "components_data_entry_input_numbers",
+  "info": {
+    "name": "InputNumber",
+    "icon": "sort-numeric-down-alt"
+  },
+  "options": {},
+  "attributes": {
+    "autoFocus": {
+      "type": "boolean",
+      "default": false
+    },
+    "decimalSeparator": {
+      "type": "string"
+    },
+    "defaultValue": {
+      "type": "float"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "max": {
+      "type": "float"
+    },
+    "min": {
+      "type": "float"
+    },
+    "precision": {
+      "type": "integer"
+    },
+    "readOnly": {
+      "type": "boolean",
+      "default": false
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "large",
+        "middle",
+        "small"
+      ]
+    },
+    "step": {
+      "type": "integer",
+      "default": 1
+    },
+    "value": {
+      "type": "float"
+    },
+    "onPressEnter": {
+      "model": "action"
+    },
+    "onChange": {
+      "model": "action"
+    },
+    "onStep": {
+      "model": "action"
+    }
+  }
+}

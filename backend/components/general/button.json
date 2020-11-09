@@ -1,0 +1,67 @@
+{
+  "collectionName": "components_general_buttons",
+  "info": {
+    "name": "Button",
+    "icon": "mouse-pointer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "ghost": {
+      "type": "boolean",
+      "default": false
+    },
+    "htmlType": {
+      "type": "string",
+      "default": "button"
+    },
+    "icon": {
+      "type": "string"
+    },
+    "shape": {
+      "type": "enumeration",
+      "enum": [
+        "circle",
+        "round",
+        "default"
+      ],
+      "default": "default"
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "default",
+        "small",
+        "large"
+      ],
+      "default": "default"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "default",
+        "primary",
+        "ghost",
+        "dashed",
+        "danger",
+        "link"
+      ],
+      "default": "default"
+    },
+    "block": {
+      "type": "boolean",
+      "default": false
+    },
+    "onClick": {
+      "model": "action"
+    },
+    "label": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

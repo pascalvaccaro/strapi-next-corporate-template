@@ -1,0 +1,60 @@
+{
+  "collectionName": "components_data_display_cards",
+  "info": {
+    "name": "Card",
+    "icon": "address-card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "actions": {
+      "collection": "action"
+    },
+    "bordered": {
+      "type": "boolean",
+      "default": true
+    },
+    "cover": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "hoverable": {
+      "type": "boolean",
+      "default": false
+    },
+    "loading": {
+      "type": "boolean",
+      "default": false
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "default",
+        "small"
+      ],
+      "default": "default"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "inner",
+        "default"
+      ],
+      "default": "default"
+    },
+    "Meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "data-display.card-meta"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}
