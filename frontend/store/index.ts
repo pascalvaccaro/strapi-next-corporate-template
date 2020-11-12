@@ -1,9 +1,8 @@
 import { useMemo } from 'react';
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, Store } from 'redux';
 
 import { localeReducer } from './locale';
 
-let store;
 
 const reducers = {
     locale: localeReducer,
@@ -14,9 +13,15 @@ function initStore(preloadedState = {}) {
         combineReducers(reducers),
         preloadedState,
     );
-}
+}    
 
-export const initializeStore = preloadedState => {
+export type AppState = {
+    locale: ReturnType<typeof localeReducer>
+};
+
+let store;
+
+export const initializeStore = (preloadedState: AppState): Store<AppState> => {
     let _store = store ?? initStore(preloadedState);
     if (preloadedState && store) {
         _store = initStore({
@@ -31,7 +36,7 @@ export const initializeStore = preloadedState => {
     return store;
 };
 
-export function useStore(initialState) {
-    const store = useMemo(() => initializeStore(initialState), [initialState]);
+export function useStore(initialState: AppState) {
+    const store = useMemo<Store<AppState>>(() => initializeStore(initialState), [initialState]);
     return store;
 }

@@ -1,17 +1,20 @@
 import React from 'react';
+import type { AppProps as NextAppProps } from 'next/app'; 
 import Head from 'next/head';
-import { ApolloProvider } from '@apollo/react-hooks';
+import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/react-hooks';
 import { Provider } from 'react-redux';
 import 'antd/dist/antd.css';
 
-import Query from '../components/query';
-import withData from '../utils/apollo';
+import withData from '../hooks/apollo';
 import { useStore } from '../store';
 import '../styles/globals.css';
 
-const App = ({ Component, pageProps, apollo, router }) => {
+type AppProps = NextAppProps & {
+  apollo: ApolloClient<InMemoryCache>;
+}
+
+const App = ({ Component, pageProps, apollo }: AppProps) => {
   const store = useStore(pageProps.initialReduxState);
-  const url = router.pathname === '/' ? '/home' : router.pathname;
 
   return (
     <ApolloProvider client={apollo}>
@@ -22,9 +25,7 @@ const App = ({ Component, pageProps, apollo, router }) => {
           <link rel="icon" href="/favicon.ico" />
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Staatliches" />
         </Head>
-        <Query url={url}>
-          {(({ data }) => <Component {...pageProps} {...data} />)}
-        </Query>
+        <Component {...pageProps} />
       </Provider>
     </ApolloProvider>
   )

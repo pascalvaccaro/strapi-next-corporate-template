@@ -1,16 +1,25 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 
-import Button from './button';
+import Button, { ButtonProps } from './button';
 
 const domain = process.env.ASSET_DOMAIN || 'http://localhost:1337';
+
+type SectionProps = {
+    backgroundColor?: string;
+    backgroundImage?: {
+        url: string;
+    };
+    content: string;
+    ctas?: ButtonProps[];
+};
 
 const Section = ({
     backgroundColor,
     backgroundImage,
     content,
     ctas = []
-}) => {
+}: SectionProps) => {
     const sectionStyle = backgroundImage && backgroundImage.url
         ? { backgroundImage: `url(${domain + backgroundImage.url})` }
         : { backgroundColor };

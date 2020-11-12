@@ -7,6 +7,7 @@ import fetch from 'isomorphic-unfetch';
 const GRAPHQL_URL = process.env.API_URL || 'http://localhost:1337';
 const link = createHttpLink({
     fetch,
+    // @ts-ignore
     url: GRAPHQL_URL + "/graphql",
 });
 

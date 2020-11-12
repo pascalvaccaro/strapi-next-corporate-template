@@ -1,16 +1,20 @@
 import { useState, useEffect } from 'react';
-const domain = process.env.API_URL || 'http://localhost:1337';
+const API_URL = process.env.API_URL || 'http://localhost:1337';
 
-const useFetch = (initialUrl, initialParams = {}, skip = false) => {
+const useFetch = <T>(
+    initialUrl: string,
+    initialParams = {},
+    skip = false
+) => {
     const [url, setUrl] = useState(initialUrl);
     const [params, setParams] = useState(initialParams);
-    const [data, setData] = useState(null);
+    const [data, setData] = useState<T>(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const [refetch, setRefetch] = useState(0);
 
     const queryString = Object.entries(params)
-        .map(([key, value]) => encodeURIComponent(key) + '=' + encodeURIComponent(value))
+        .map(([key, value]) => encodeURIComponent(key) + '=' + encodeURIComponent(value as string))
         .join('&');
 
     const refresh = () => setRefetch((previous) => previous + 1);
@@ -20,12 +24,12 @@ const useFetch = (initialUrl, initialParams = {}, skip = false) => {
             if (skip) return;
             setLoading(true);
             try {
-                const response = await fetch(`${domain}${url}?${queryString}`);
-                const result = await response.json();
+                const response = await fetch(`${API_URL}${url}?${queryString}`);
+                const result: unknown = await response.json();
                 if (response.ok) {
-                    setData(result);
+                    setData(result as T);
                 } else {
-                    setError(result);
+                    setError(result as string);
                 }
             } catch (err) {
                 setError(err.message);
