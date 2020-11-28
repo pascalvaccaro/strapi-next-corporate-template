@@ -9,9 +9,6 @@
     "enterButton": {
       "type": "boolean",
       "default": false
-    },
-    "onSearch": {
-      "model": "action"
     }
   }
 }

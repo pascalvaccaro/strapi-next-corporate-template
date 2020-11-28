@@ -17,24 +17,32 @@
     },
     "content": {
       "type": "richtext",
-      "required": true
+      "required": false
     },
-    "image": {
+    "categories": {
+      "collection": "category",
+      "via": "articles",
+      "dominant": true
+    },
+    "cover": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
         "images"
       ],
       "plugin": "upload",
-      "required": true
+      "required": false
     },
-    "category": {
-      "model": "category",
+    "subTitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "author": {
+      "plugin": "users-permissions",
+      "model": "user",
       "via": "articles"
-    },
-    "textColor": {
-      "type": "text",
-      "inputType": "colorpicker"
     }
   }
 }

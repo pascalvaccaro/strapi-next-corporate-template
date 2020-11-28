@@ -25,6 +25,15 @@
       "repeatable": true,
       "component": "general.button",
       "max": 3
+    },
+    "title": {
+      "type": "string"
+    },
+    "subTitle": {
+      "type": "text"
+    },
+    "cards": {
+      "collection": "article"
     }
   }
 }

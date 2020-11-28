@@ -38,12 +38,6 @@
         "fade"
       ],
       "default": "scrollx"
-    },
-    "afterChange": {
-      "model": "action"
-    },
-    "beforeChange": {
-      "model": "action"
     }
   }
 }

@@ -108,21 +108,6 @@
     },
     "value": {
       "type": "text"
-    },
-    "onChange": {
-      "model": "action"
-    },
-    "onClear": {
-      "model": "action"
-    },
-    "onDeselect": {
-      "model": "action"
-    },
-    "onSearch": {
-      "model": "action"
-    },
-    "onSelect": {
-      "model": "action"
     }
   }
 }

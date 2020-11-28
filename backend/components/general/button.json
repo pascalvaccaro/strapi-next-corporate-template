@@ -15,10 +15,6 @@
       "type": "boolean",
       "default": false
     },
-    "htmlType": {
-      "type": "string",
-      "default": "button"
-    },
     "icon": {
       "type": "string"
     },
@@ -56,12 +52,18 @@
       "type": "boolean",
       "default": false
     },
-    "onClick": {
-      "model": "action"
-    },
     "label": {
-      "type": "text",
+      "type": "string",
       "required": true
+    },
+    "page": {
+      "model": "page"
+    },
+    "article": {
+      "model": "article"
+    },
+    "href": {
+      "type": "string"
     }
   }
 }

@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pages",
+  "info": {
+    "name": "Page",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "richtext",
+      "required": false
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "sections": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.section"
+    }
+  }
+}

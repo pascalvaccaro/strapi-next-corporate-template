@@ -1,21 +1,41 @@
-import { GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 
-import { Button } from '../../components';
-import { fetchPage } from '../../utils/fetch';
+import { ArticleProps } from './[id]';
+import { initializeApollo } from '../../hooks/apollo';
+import { ALL_ARTICLES, GET_ARTICLES } from '../../queries/articles';
 
-const Articles = ({ articles }) => (
-    <>
-        <Button label={'Back home'} onClick={{type: 'NAVIGATE_TO', payload: {page: '/'}}} />
-        <pre>
-            {JSON.stringify(articles, null, 2)}
-        </pre>
-    </>
+const Articles: React.FC<{articles: ArticleProps[]}> = ({ articles }) => (
+  <>
+
+  </>
 );
 
 export default Articles;
 
-export const getStaticProps: GetStaticProps = async () => ({
+export const getStaticProps: GetStaticProps<{articles: ArticleProps[]}> = async () => {
+  const client = initializeApollo(null);
+  const { data } = await client.query<{articles: ArticleProps[]}>({
+    query: GET_ARTICLES
+  });
+
+  return {
     props: {
-        articles: await fetchPage('/articles'),
+      initialApolloState: client.cache.extract(),
+      ...data,
     }
-});
+  }
+};
+
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const client = initializeApollo(null);
+  const { data } = await client.query<{articles: { id: number }[]}>({
+    query: ALL_ARTICLES
+  });
+  const paths = data.articles.map(article => ({ params: { id: [String(article.id)] }}));
+
+  return {
+    paths,
+    fallback: false
+  };
+}

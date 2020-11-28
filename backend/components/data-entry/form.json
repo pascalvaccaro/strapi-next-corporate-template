@@ -48,9 +48,6 @@
         "middle",
         "large"
       ]
-    },
-    "onFinish": {
-      "model": "action"
     }
   }
 }

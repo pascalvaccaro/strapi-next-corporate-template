@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "nav_bars",
+  "info": {
+    "name": "NavBar"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.menu"
+    },
+    "social": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.menu"
+    }
+  }
+}

@@ -35,12 +35,6 @@
     },
     "uncheckedChildren": {
       "type": "richtext"
-    },
-    "onChange": {
-      "model": "action"
-    },
-    "onClick": {
-      "model": "action"
     }
   }
 }

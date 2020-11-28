@@ -7,13 +7,6 @@
   },
   "options": {},
   "attributes": {
-    "actions": {
-      "collection": "action"
-    },
-    "bordered": {
-      "type": "boolean",
-      "default": true
-    },
     "cover": {
       "model": "file",
       "via": "related",
@@ -24,14 +17,6 @@
       "plugin": "upload",
       "required": false
     },
-    "hoverable": {
-      "type": "boolean",
-      "default": false
-    },
-    "loading": {
-      "type": "boolean",
-      "default": false
-    },
     "size": {
       "type": "enumeration",
       "enum": [
@@ -40,20 +25,25 @@
       ],
       "default": "default"
     },
-    "type": {
-      "type": "enumeration",
-      "enum": [
-        "inner",
-        "default"
-      ],
-      "default": "default"
-    },
-    "Meta": {
-      "type": "component",
-      "repeatable": false,
-      "component": "data-display.card-meta"
-    },
     "title": {
+      "type": "string"
+    },
+    "avatar": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "description": {
+      "type": "text"
+    },
+    "subTitle": {
+      "type": "string"
+    },
+    "href": {
       "type": "string"
     }
   }

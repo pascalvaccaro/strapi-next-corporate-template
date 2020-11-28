@@ -15,8 +15,10 @@ a {
   box-sizing: border-box;
 }
 
-section {
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: 0 24px;
+.ant-layout, .ant-layout-header, .ant-layout-content {
+  padding: 0;
+  background-color: transparent;
+}
+.ant-layout-footer {
+  text-align: center;
 }

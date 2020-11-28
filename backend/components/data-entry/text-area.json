@@ -30,12 +30,6 @@
     },
     "value": {
       "type": "text"
-    },
-    "onPressEnter": {
-      "model": "action"
-    },
-    "onResize": {
-      "model": "action"
     }
   }
 }

@@ -47,15 +47,6 @@
     },
     "value": {
       "type": "float"
-    },
-    "onPressEnter": {
-      "model": "action"
-    },
-    "onChange": {
-      "model": "action"
-    },
-    "onStep": {
-      "model": "action"
     }
   }
 }

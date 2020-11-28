@@ -1,10 +1,8 @@
 import pluginPkg from '../../package.json';
-import Wysiwyg from './components/Wysiwyg';
-import ColorPicker from './components/ColorPicker';
-import { faPalette } from '@fortawesome/free-solid-svg-icons';
 import pluginId from './pluginId';
 import App from './containers/App';
 import Initializer from './containers/Initializer';
+import Wysiwyg from './components/Wysiwyg';
 import lifecycles from './lifecycles';
 import trads from './translations';
 
@@ -51,8 +49,7 @@ export default strapi => {
     },
   };
 
-  strapi.registerField({ type: 'richtext', Component: Wysiwyg });
-  strapi.registerField({ type: 'colorpicker', Component: ColorPicker, collectionType: 'text', icon: faPalette, pluginId });
+  strapi.registerField({ type: 'wysiwyg', Component: Wysiwyg });
 
   return strapi.registerPlugin(plugin);
 };

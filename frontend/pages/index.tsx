@@ -1,19 +1,21 @@
-import { GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 
-import { Section, CardGroup } from '../components';
-import { fetchPage } from '../utils/fetch';
+import Page, { IPage } from './[...page]';
+import { initializeApollo } from '../hooks/apollo';
+import { FIND_PAGE } from '../queries/pages';
 
-const Home = ({ jumbotron, services, blog, about }) => (
-  <>
-    <Section {...jumbotron} />
-    <CardGroup content={services} />
-    <Section {...blog} />
-    <Section {...about} />
-  </>
-);
+export default Page;
 
-export default Home;
+export const getStaticProps: GetStaticProps<IPage> = async () => {
+  const client = initializeApollo(null);
+  const { data } = await client.query<{pageBySlug: IPage}>({
+    query: FIND_PAGE,
+    variables: { slug: 'home' }
+  });
 
-export const getStaticProps: GetStaticProps = async () => ({
-  props: await fetchPage('/home'),
-});
+  return {
+    props: {
+      ...data.pageBySlug
+    }
+  };
+};

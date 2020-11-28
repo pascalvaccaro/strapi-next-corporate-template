@@ -46,9 +46,6 @@
     },
     "value": {
       "type": "text"
-    },
-    "onChange": {
-      "model": "action"
     }
   }
 }
