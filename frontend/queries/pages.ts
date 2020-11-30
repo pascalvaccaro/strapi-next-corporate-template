@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 import { SectionFragment } from './components';
 
 export const FIND_PAGE = gql`
-  query Page($slug: String!) {
+  query FindPage($slug: String!) {
     pageBySlug(slug: $slug) {
       id
       title
@@ -17,7 +17,7 @@ export const FIND_PAGE = gql`
 
 
 export const ALL_PAGES = gql`
-  query Pages {
+  query AllPages {
     pages(publicationState: LIVE) {
       slug
     }

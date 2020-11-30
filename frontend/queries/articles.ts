@@ -14,9 +14,9 @@ const ArticleFragment = gql`
     }  
     author {
       username
-      avatar
+      avatar {
         url
-      
+      }
       email
     }
     created_at
@@ -25,7 +25,7 @@ const ArticleFragment = gql`
 `;
 
 export const GET_ARTICLES = gql`
-  query Articles {
+  query GetArticles {
     articles(publicationState: LIVE) {
       ...ArticleFragment
     }
@@ -34,7 +34,7 @@ export const GET_ARTICLES = gql`
 `;
 
 export const ALL_ARTICLES = gql`
-  query Articles {
+  query AllArticles {
     articles(publicationState: LIVE) {
       id
     }
@@ -42,7 +42,7 @@ export const ALL_ARTICLES = gql`
 `;
 
 export const GET_ARTICLE = gql`
-  query Article($id: ID!) {
+  query GetArticle($id: ID!) {
     article(id: $id) {
       ...ArticleFragment
     }
