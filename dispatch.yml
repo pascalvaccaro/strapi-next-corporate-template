@@ -1,0 +1,3 @@
+dispatch:
+  - url: "*.appspot.com/admin/*"
+    service: backend
