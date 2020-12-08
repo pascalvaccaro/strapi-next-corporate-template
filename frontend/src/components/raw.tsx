@@ -2,13 +2,12 @@ import React, {  } from 'react';
 import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
 import { Prism } from 'react-syntax-highlighter';
-import parse, { domToReact, attributesToProps } from 'html-react-parser';
+import { domToReact, attributesToProps } from 'html-react-parser';
 import { DomElement } from 'htmlparser2';
-import { Image, Typography, List } from 'antd';
+import { Image, Typography } from 'antd';
 import styled from 'styled-components';
 
 import { getAssetURL } from '../utils/url';
-import Link from 'next/link';
 
 const tagMap = new Map<string, React.FC<any>>();
 tagMap.set("p", Typography.Paragraph);

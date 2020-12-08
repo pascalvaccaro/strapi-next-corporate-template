@@ -20,4 +20,4 @@ yarn-error.log*
 
 # editor
 *.code-workspace
-.vscode
+/.vscode

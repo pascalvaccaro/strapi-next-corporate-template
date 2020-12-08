@@ -1,0 +1,24 @@
+name: Dispatch
+
+on:
+  push:
+    paths:
+      - 'dispatch.yml'
+    branches:
+      - master
+
+  workflow_dispatch:
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: google-github-actions/setup-gcloud@master
+        with:
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Dispatch GAE Services
+        run: gcloud app deploy dispatch.yml

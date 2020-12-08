@@ -1,13 +1,13 @@
 import React from 'react';
 import type { AppProps } from 'next/app'; 
 import Head from 'next/head';
-import { ApolloProvider } from '@apollo/react-hooks';
+import { ApolloProvider, ApolloClient, NormalizedCacheObject } from '@apollo/react-hooks';
 import { Provider as ReduxProvider } from 'react-redux';
 import { Layout } from 'antd';
 import { HeartTwoTone } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 
-import { useApollo } from '../hooks/apollo';
+import withApollo, { ApolloProps } from '../hooks/apollo';
 import { useStore } from '../hooks/store';
 import { IPage } from './[...page]';
 
@@ -16,16 +16,15 @@ import Nav from '../containers/nav';
 
 const STRIP_HEIGHT = {height: 64} as const;
 
-const App = ({ Component, pageProps }: AppProps) => {
+const App = ({ Component, pageProps, apollo }: AppProps & ApolloProps) => {
   const store = useStore(pageProps.initialReduxState);
-  const client = useApollo(pageProps.initialApolloState);
+  const client: unknown = apollo;
   const { title } = pageProps || Object.values<IPage>(pageProps.initialApolloState || {})
     .find(({ title }) => !!title) || { title : undefined };
 
   return (
     <ReduxProvider store={store}>
-      {/* @ts-ignore */}
-      <ApolloProvider client={client}>
+      <ApolloProvider client={client as ApolloClient<NormalizedCacheObject>}>
         <Head>
           {title && <title>{title}</title>}
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -45,4 +44,4 @@ const App = ({ Component, pageProps }: AppProps) => {
   )
 };
 
-export default App;
+export default withApollo(App);

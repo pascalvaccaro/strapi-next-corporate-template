@@ -1,0 +1,12 @@
+runtime: nodejs10
+instance_class: F2
+env_variables:
+  HOST: '0.0.0.0'
+  NODE_ENV: 'production'
+  DATABASE_NAME: 'strapi'
+  INSTANCE_CONNECTION_NAME: 'pascal-vaccaro:europe-west1:strapi-personal'
+
+beta_settings:
+  cloud_sql_instance: 'pascal-vaccaro:europe-west1:strapi-personal'
+
+service: backend

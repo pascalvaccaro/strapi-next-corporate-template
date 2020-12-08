@@ -1,29 +1,8 @@
-import { GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 
 import { initializeApollo } from '../../hooks/apollo';
-import { GET_ARTICLE } from '../../queries/articles';
-
-export interface ArticleProps {
-  id: string
-  title: string;
-  content: string;
-  cover: {
-    url: string;
-  }
-  categories: {
-    id: number;
-    name: string;
-  }[];
-  author: {
-    username: string;
-    avatar: {
-      url: string;
-    }
-    email: string;
-  }
-  created_at: Date;
-  updated_at: Date;
-}
+import { ALL_ARTICLES, GET_ARTICLE } from '../../queries/articles';
+import { Article as ArticleProps } from '../../typings';
 
 const Article: React.FC<ArticleProps> = () => (
   <>
@@ -49,3 +28,16 @@ export const getStaticProps: GetStaticProps<ArticleProps> = async ({ params }) =
 
   }
 };
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const client = initializeApollo(null);
+  const { data } = await client.query<{articles: ArticleProps[]}>({
+    query: ALL_ARTICLES
+  });
+  const paths = data.articles.map(({ id }) => ({ params: { id }}));
+
+  return {
+    paths,
+    fallback: false
+  };
+}

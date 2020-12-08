@@ -6,7 +6,7 @@
     "debug": "NODE_OPTIONS='--inspect=127.0.0.1:9230' next dev",
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p $PORT",
     "schema:generate": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
