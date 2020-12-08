@@ -13,9 +13,11 @@ export const getStaticProps: GetStaticProps<IPage> = async () => {
     variables: { slug: 'home' }
   });
 
-  return {
+  return data.pageBySlug ? {
     props: {
       ...data.pageBySlug
     }
+  } : {
+    notFound: true,
   };
 };

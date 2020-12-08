@@ -1,16 +1,19 @@
+import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { Skeleton } from 'antd';
 import styled from 'styled-components';
 
 import { FIND_PAGE, ALL_PAGES } from "../queries/pages";
 import { initializeApollo } from '../hooks/apollo';
 import { Section, SectionProps } from '../components';
 import Raw from '../components/raw';
+import { useRouter } from 'next/router';
 
 const RawContent = styled.div``;
 const Wrapper = styled.div`
   height: 100%;
   width: 100%;
-  
+
   > * {
     min-height: 33vh;
   }
@@ -20,14 +23,19 @@ const Wrapper = styled.div`
   }
 `;
 
-const Page: React.FC<IPage> = ({ content, sections }) => (
-  <Wrapper>
-    {sections && sections.length
-      ? sections.map(section => <Section key={section.id} {...section} />)
-      : <Raw content={content} />
-    }
-  </Wrapper>
-);
+const Page: React.FC<IPage> = ({ content, sections }) => {
+  const router = useRouter();
+  return (
+    <Skeleton active loading={router.isFallback}>
+      <Wrapper>
+        {sections && sections.length
+          ? sections.map(section => <Section key={section.id} {...section} />)
+          : <Raw content={content} />
+        }
+      </Wrapper>
+    </Skeleton>
+  );
+};
 
 export default Page;
 
@@ -56,10 +64,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const client = initializeApollo(null);
   const { data } = await client.query<{pages: IPage[]}>({ query: ALL_PAGES });
-  const paths = data.pages.map(page => ({ params: { page: [page.slug] }}));
+  const paths = data.pages.map(({ slug }) => ({ params: { page: slug }}));
 
   return {
-    paths, 
+    paths,
     fallback: true,
   };
 };

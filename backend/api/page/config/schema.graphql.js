@@ -1,6 +1,6 @@
 module.exports = {
   query: `
-    pageBySlug(slug: String): Page!
+    pageBySlug(slug: String): Page
   `,
   resolver: {
     Query: {
