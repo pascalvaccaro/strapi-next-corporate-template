@@ -61,7 +61,7 @@ jobs:
         run: yarn build
       
       - name: Upload .next folder
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
           name: build
           path: | 
