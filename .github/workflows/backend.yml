@@ -33,7 +33,8 @@ jobs:
           echo "DATABASE_USER=${{ secrets.DATABASE_USER }}" >> .env
           echo "DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }}" >> .env
           echo "STRAPI_PREVIEW_SECRET=${{ secrets.STRAPI_PREVIEW_SECRET }}" >> .env
-          echo "GITHUB_ACCESS_TOKEN=${{ secrets.GH_ACCESS_TOKEN }}" >> .env
+          echo "GITHUB_ACCESS_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> .env
+          echo "GITHUB_REPOSITORY=$GITHUB_REPOSITORY" >> .env
 
       - name: Deploy Backend
         run: gcloud app deploy

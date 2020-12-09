@@ -5,9 +5,7 @@ env_variables:
   NODE_ENV: 'production'
   DATABASE_NAME: 'strapi'
   INSTANCE_CONNECTION_NAME: 'pascal-vaccaro:europe-west1:strapi-personal'
-  REPOSITORY_PATH: 'pascalvaccaro/strapi-next-corporate-template'
   NEXT_PREVIEW_API_URL: https://pascal-vaccaro.ew.r.appspot.com/api/preview
-
 
 beta_settings:
   cloud_sql_instance: 'pascal-vaccaro:europe-west1:strapi-personal'

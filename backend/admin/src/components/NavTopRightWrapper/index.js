@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from 'react';
-import { FormattedMessage } from 'react-intl';
 import { join } from 'path';
 import { Button, Modal, ModalHeader, ModalForm, ModalBody, ModalSection, InputTextWithErrors, InputPasswordWithErrors } from 'strapi-helper-plugin';
 import styled from 'styled-components';
@@ -14,13 +13,13 @@ const NavTopRightWrapper = styled.div`
 `;
 
 const DeploymentModal = ({ isOpen, close }) => {
-  const [repository, setRepository] = useState(REPOSITORY_PATH);
+  const [repository, setRepository] = useState(GITHUB_REPOSITORY);
   const [token, setToken] = useState(GITHUB_ACCESS_TOKEN);
 
-  const getUrl = useCallback(() => new URL(join('/repos', repository, 'dispatches'), 'https://api.github.com').toString(), [repository])
+  const hookUrl = useMemo(new URL(join('/repos', repository, 'dispatches'), 'https://api.github.com').toString(), [repository])
 
   const onConfirm = useCallback(
-    () => fetch(getUrl(), {
+    () => fetch(hookUrl, {
       method: 'POST',
       body: JSON.stringify({ event_type: "build_from_strapi" }),
       headers: {
@@ -32,7 +31,7 @@ const DeploymentModal = ({ isOpen, close }) => {
     .then(() => strapi.notification.success("deploy.success.message"))
     .catch(err => strapi.notification.error(err.message))
     .finally(close),
-  [repository, token, close]);
+  [hookUrl, token, close]);
 
   return (
     <ModalForm>
@@ -42,7 +41,7 @@ const DeploymentModal = ({ isOpen, close }) => {
           <InputTextWithErrors label={{id: "deploy.modal.repository.label"}}
             name="repository" value={repository} onChange={e => setRepository(e.target.value)}
             placeholder="deploy.modal.repository.placeholder"
-            inputDescription={repository ? getUrl() : null}
+            inputDescription={getUrl()} disabled={!!GITHUB_REPOSITORY}
           />
           <InputPasswordWithErrors label={{id: "deploy.modal.token.label"}}
             name="token" value={token} onChange={e => setToken(e.target.value)}
