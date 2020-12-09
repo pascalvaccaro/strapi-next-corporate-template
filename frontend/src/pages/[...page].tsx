@@ -48,7 +48,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const client = initializeApollo(null);
   const [slug] = params.page as string[];
-  const { data } = await client.query<{pageBySlug: IPage}>({
+  const { data } = await client.query<{page: IPage}>({
     query: FIND_PAGE,
     variables: { slug },
   });
@@ -56,7 +56,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       initialApolloState: client.cache.extract(),
-      ...data.pageBySlug,
+      ...data.page,
     },
   };
 };
@@ -64,7 +64,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const client = initializeApollo(null);
   const { data } = await client.query<{pages: IPage[]}>({ query: ALL_PAGES });
-  const paths = data.pages.map(({ slug }) => ({ params: { page: slug }}));
+  const paths = data.pages.map(({ slug }) => ({ params: { page: [slug] }}));
 
   return {
     paths,

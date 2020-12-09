@@ -3,8 +3,9 @@ import { SectionFragment } from './components';
 
 export const FIND_PAGE = gql`
   query FindPage($slug: String!) {
-    pageBySlug(slug: $slug) {
+    page: pageBySlug(slug: $slug) {
       id
+      slug
       title
       content,
       sections {

@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticProps } from 'next';
 
 import Page, { IPage } from './[...page]';
 import { initializeApollo } from '../hooks/apollo';
@@ -8,14 +8,14 @@ export default Page;
 
 export const getStaticProps: GetStaticProps<IPage> = async () => {
   const client = initializeApollo(null);
-  const { data } = await client.query<{pageBySlug: IPage}>({
+  const { data } = await client.query<{page: IPage}>({
     query: FIND_PAGE,
     variables: { slug: 'home' }
   });
 
-  return data.pageBySlug ? {
+  return data && data.page ? {
     props: {
-      ...data.pageBySlug
+      ...data.page
     }
   } : {
     notFound: true,

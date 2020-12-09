@@ -50,6 +50,10 @@ jobs:
 
       - name: Install Dependencies
         run: yarn install --ignore-engines
+
+      - name: Add Secrets to .env.production
+        run: |
+          echo "STRAPI_PREVIEW_SECRET=${{ secrets.STRAPI_PREVIEW_SECRET }}" >> .env.production
           
       - name: Build Next Application
         run: yarn build
