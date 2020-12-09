@@ -1,6 +1,6 @@
 import originals, { languageNativeNames } from 'strapi-admin/admin/src/translations';
-import fr from './fr.json';
-import en from './en.json';
+import fr from './fr';
+import en from './en';
 
 const trads = {
   ...originals,

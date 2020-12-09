@@ -1,4 +1,4 @@
-{
+export default {
   "deploy.button.label": "Deploy website",
   "deploy.modal.header.title": "Deploy a new version for your website",
   "deploy.modal.repository.label": "Unique repository path",

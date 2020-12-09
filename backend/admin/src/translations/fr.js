@@ -1,4 +1,4 @@
-{
+export default {
   "deploy.button.label": "Déployer le site web",
   "deploy.modal.header.title": "Déployer une nouvelle version de votre site web",
   "deploy.modal.repository.label": "Chemin unique du dépôt contenant le code du site web",
