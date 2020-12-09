@@ -33,7 +33,7 @@ jobs:
           echo "DATABASE_USER=${{ secrets.DATABASE_USER }}" >> .env
           echo "DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }}" >> .env
           echo "STRAPI_PREVIEW_SECRET=${{ secrets.STRAPI_PREVIEW_SECRET }}" >> .env
-          echo "NEXT_PREVIEW_API_URL=https://${{ secrets.GCP_PROJECT_ID }}.ew.r.appspot.com/api/preview" >> .env
+          echo "GITHUB_ACCESS_TOKEN=${{ secrets.GH_ACCESS_TOKEN }}" >> .env
 
       - name: Deploy Backend
         run: gcloud app deploy

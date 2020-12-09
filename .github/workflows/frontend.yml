@@ -8,6 +8,11 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+  # Triggers the workflow on POST /dispatches
+  repository_dispatch:
+    types:
+      - build_from_strapi
+
   # Triggers the workflow when a new backend version is up and running 
   workflow_run:
     workflows: 

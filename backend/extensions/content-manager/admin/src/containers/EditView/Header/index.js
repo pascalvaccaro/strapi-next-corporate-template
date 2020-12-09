@@ -13,7 +13,6 @@ import {
   PopUpWarningHeader,
   PopUpWarningIcon,
   PopUpWarningModal,
-  LiLink,
 } from 'strapi-helper-plugin';
 import { getTrad } from '../../../utils';
 import { connect, getDraftRelations, select } from './utils';
