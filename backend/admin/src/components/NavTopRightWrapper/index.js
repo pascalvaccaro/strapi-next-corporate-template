@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { join } from 'path';
 import { Button, Modal, ModalHeader, ModalForm, ModalBody, ModalSection, InputTextWithErrors, InputPasswordWithErrors } from 'strapi-helper-plugin';
 import styled from 'styled-components';
@@ -13,37 +13,37 @@ const NavTopRightWrapper = styled.div`
 `;
 
 const DeploymentModal = ({ isOpen, close }) => {
-  const [repository, setRepository] = useState(GITHUB_REPOSITORY);
-  const [token, setToken] = useState(GITHUB_ACCESS_TOKEN);
+  const [repository, setRepository] = useState(process.env.GITHUB_REPOSITORY);
+  const [token, setToken] = useState(process.env.GITHUB_ACCESS_TOKEN);
 
-  const hookUrl = useMemo(new URL(join('/repos', repository, 'dispatches'), 'https://api.github.com').toString(), [repository])
+  const hookUrl = useMemo(() => new URL(join('/repos', repository, 'dispatches'), 'https://api.github.com').toString(), [repository]);
 
   const onConfirm = useCallback(
     () => fetch(hookUrl, {
       method: 'POST',
-      body: JSON.stringify({ event_type: "build_from_strapi" }),
+      body: JSON.stringify({ event_type: 'build_from_strapi' }),
       headers: {
         Accept: 'application/vnd.github.v3+json',
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization: `token ${token}`,
       },
     })
-    .then(() => strapi.notification.success("deploy.success.message"))
-    .catch(err => strapi.notification.error(err.message))
-    .finally(close),
-  [hookUrl, token, close]);
+      .then(() => strapi.notification.success('deploy.success.message'))
+      .catch(err => strapi.notification.error(err.message))
+      .finally(close),
+    [hookUrl, token, close]);
 
   return (
     <ModalForm>
       <Modal isOpen={isOpen} onToggle={close}>
-        <ModalHeader headerBreadcrumbs={["deploy.modal.header.title"]} />
+        <ModalHeader headerBreadcrumbs={['deploy.modal.header.title']} />
         <ModalBody>
-          <InputTextWithErrors label={{id: "deploy.modal.repository.label"}}
+          <InputTextWithErrors label={{id: 'deploy.modal.repository.label'}}
             name="repository" value={repository} onChange={e => setRepository(e.target.value)}
             placeholder="deploy.modal.repository.placeholder"
-            inputDescription={getUrl()} disabled={!!GITHUB_REPOSITORY}
+            inputDescription={hookUrl} disabled={!!process.env.GITHUB_REPOSITORY}
           />
-          <InputPasswordWithErrors label={{id: "deploy.modal.token.label"}}
+          <InputPasswordWithErrors label={{id: 'deploy.modal.token.label'}}
             name="token" value={token} onChange={e => setToken(e.target.value)}
             placeholder="deploy.modal.token.placeholder"
           />
@@ -53,7 +53,7 @@ const DeploymentModal = ({ isOpen, close }) => {
         </ModalSection>
       </Modal>
     </ModalForm>
-  )
+  );
 };
 
 const NavTopRight = ({ children }) => {
@@ -62,7 +62,7 @@ const NavTopRight = ({ children }) => {
 
   return (
     <NavTopRightWrapper>
-      {NODE_ENV === 'production' && (
+      {process.env.NODE_ENV === 'production' && (
         <>
           <DeploymentModal isOpen={isOpen} close={() => setIsOpen(false)} />
           <Button key="deploy" primary onClick={openModal} label="deploy.button.label"  />
@@ -70,7 +70,7 @@ const NavTopRight = ({ children }) => {
       )}
       {children}
     </NavTopRightWrapper>
-  )
+  );
 };
 
 export default NavTopRight;

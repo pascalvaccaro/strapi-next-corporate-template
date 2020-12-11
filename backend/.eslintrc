@@ -21,7 +21,32 @@
     "indent": ["error", 2, { "SwitchCase": 1 }],
     "linebreak-style": ["error", "unix"],
     "no-console": 0,
-    "quotes": ["error", "single"],
+    "quotes": ["error", "single", { "avoidEscape": true }],
     "semi": ["error", "always"]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["**/admin/src/**/*.js"],
+      "env": {
+        "browser": true
+      },
+      "extends": [
+        "plugin:react/recommended"
+      ],
+      "rules": {
+        "react/prop-types": 0
+      },
+      "settings": {
+        "react": {
+          "version": "detect"
+        }
+      }
+    }, {
+      "files": ["**/translations/*.js"],
+      "rules": {
+        "quotes": ["error", "double"]
+      }
+    }
+
+  ]
 }

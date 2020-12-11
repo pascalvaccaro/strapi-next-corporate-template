@@ -108,7 +108,7 @@ const Header = ({
         label: 'Preview',
         key: 'preview',
         disabled: didChangeData,
-        onClick: () => window.open(`${NEXT_PREVIEW_API_URL}?slug=${modifiedData.slug}&secret=${STRAPI_PREVIEW_SECRET}`, "_blank")
+        onClick: () => window.open(`${process.env.NEXT_PREVIEW_API_URL}?slug=${modifiedData.slug}&secret=${process.env.STRAPI_PREVIEW_SECRET}`, '_blank')
       });
     }
 

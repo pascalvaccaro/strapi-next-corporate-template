@@ -1,7 +1,7 @@
-import React from "react";
-import { Label, Description, ErrorMessage } from "@buffetjs/styles";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+import React from 'react';
+import { Label, Description, ErrorMessage } from '@buffetjs/styles';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import styled from 'styled-components';
 
 const Editor = ({ onChange, name, value }) => (
@@ -21,7 +21,7 @@ const Editor = ({ onChange, name, value }) => (
         ['clean'],
       ],
     }}
-    onChange={(content, event, editor) => {
+    onChange={(content) => {
       onChange({ target: { name, value: content } });
     }} />
 );
